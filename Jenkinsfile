@@ -1,8 +1,8 @@
-Pipeline {
+pipeline {
     agent any;
     stages {
         stage('Build'){
-            setps{
+            steps{
                 echo "Hello Building World"
             }
         }
