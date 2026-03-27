@@ -1,7 +1,7 @@
 pipeline {
     agent any;
      environment {
-        DOCKER_USER = 'your-docker-username'
+        DOCKER_USER = 'aryanatel'
     }
     stages {
         stage('Docker Build'){
