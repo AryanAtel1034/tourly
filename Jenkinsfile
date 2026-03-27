@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Docker Build'){
             steps{
-               sh "docker build -t tourly_image ."
+               sh "docker build -t tourly:$BUILD_NUMBER ."
             }
         }
         stage('Docker Hub Login'){
@@ -18,7 +18,7 @@ pipeline {
         }
          stage('Docker Push'){
             steps{
-               sh "docker push aryanatel/tourly_image"
+               sh "docker push aryanatel/tourly:$BUILD_NUMBER"
             }
         }
         stage('Docker Success Flag'){
