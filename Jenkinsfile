@@ -16,9 +16,14 @@ pipeline {
                }
             }
         }
-        stage('Docker Hub Flag'){
+         stage('Docker Push'){
             steps{
-              echo "Docker Hub Login Successful"
+               sh "docker push aryanatel/tourly_image"
+            }
+        }
+        stage('Docker Success Flag'){
+            steps{
+              echo "Docker push Login Successful"
             }
         }
         
