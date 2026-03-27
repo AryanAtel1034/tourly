@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Docker Build'){
             steps{
-               sh "docker build -t tourly:$BUILD_NUMBER ."
+               sh "docker build -t aryanatel/tourly:$BUILD_NUMBER ."
             }
         }
         stage('Docker Hub Login'){
