@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build'){
             steps{
-                echo "Hello Building World"
+               sh "docker build -t tourly_image ."
             }
         }
         stage('Deploy'){
