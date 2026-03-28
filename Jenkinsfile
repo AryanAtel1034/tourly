@@ -26,6 +26,11 @@ pipeline {
               echo "Docker push Login Successful"
             }
         }
+         stage('Webhook Success Flag'){
+            steps{
+              echo "wWebhook Successful"
+            }
+        }
         
     }
 }
