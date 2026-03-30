@@ -9,7 +9,7 @@ pipeline {
                sh "docker build -t aryanatel/tourly:$BUILD_NUMBER ."
             }
         }
-        stage('Trivy Scan'){
+        stage('Trivy FileSystem Scan'){
             steps{
                sh "trivy fs -f json -o results.json ."
             }
