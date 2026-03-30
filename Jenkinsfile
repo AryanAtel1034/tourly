@@ -38,7 +38,7 @@ pipeline {
                 ACCOUNT_ID=194477973016
                 ECR_REPO=dev/mfe
 
-                ECR_URL=194477973016.dkr.ecr.ap-south-1.amazonaws.com/dev/mfe
+                ECR_URL=194477973016.dkr.ecr.ap-south-1.amazonaws.com
 
                 aws ecr get-login-password --region $AWS_REGION \
                 | docker login --username AWS --password-stdin $ECR_URL
