@@ -31,9 +31,22 @@ pipeline {
               echo "Docker push Login Successful"
             }
         }
-         stage('Webhook Success Flag'){
-            steps{
-              echo "wWebhook Successful $BUILD_NUMBER"
+         stage('Push to ECR') {
+            steps {
+                sh '''
+                AWS_REGION=ap-south-1
+                ACCOUNT_ID=194477973016
+                ECR_REPO=dev/mfe
+
+                ECR_URL=194477973016.dkr.ecr.ap-south-1.amazonaws.com/dev/mfe
+
+                aws ecr get-login-password --region $AWS_REGION \
+                | docker login --username AWS --password-stdin $ECR_URL
+
+                docker build -t $ECR_REPO:latest .
+                docker tag $ECR_REPO:latest $ECR_URL/$ECR_REPO:latest
+                docker push $ECR_URL/$ECR_REPO:latest
+                '''
             }
         }
         
