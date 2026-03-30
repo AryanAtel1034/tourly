@@ -9,6 +9,11 @@ pipeline {
                sh "docker build -t aryanatel/tourly:$BUILD_NUMBER ."
             }
         }
+        stage('Trivy Scan'){
+            steps{
+               sh "trivy fs -f json -o results.json ."
+            }
+        }
         stage('Docker Hub Login'){
             steps{
                withCredentials([string(credentialsId: 'docker_passwd', variable: 'docker_passwd')]) {
